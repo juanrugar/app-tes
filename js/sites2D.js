@@ -2,22 +2,8 @@
 function addSites() {
     //PLB PhD Thesis archaeological record
     //archaeoliogical site plans in 2d polygons
-    var url = 'data/AAG_ElLechugal_WG84Geograficas.geojson';
+    var url = 'data\AAG_ElLechugal_WGS84.geojson';
     map.addSource('sites', { type: 'geojson', data: url });
-    /*
-        map.addLayer({
-            'id': 'siteMap',
-            'type': 'circle',
-            'source': 'sites',
-            'layout': {
-            },
-            'paint': {
-                'circle-color': 'darkred',
-                'circle-stroke-color': 'black',
-                'circle-radius': 4
-            }
-        });
-        */
 
     //So as to draw polygons I used the reference
     //https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/
@@ -25,7 +11,7 @@ function addSites() {
     map.addLayer({
         'id': 'siteMap',
         'type': 'fill',
-        'source': 'siteMap', // reference the data source
+        'source': 'sites', // reference the data source
         'layout': {},
         'paint': {
             'fill-color': '#0080ff', // blue color fill
@@ -36,7 +22,7 @@ function addSites() {
     map.addLayer({
         'id': 'outline',
         'type': 'line',
-        'source': 'siteMap',
+        'source': 'sites',
         'layout': {},
         'paint': {
             'line-color': '#000',

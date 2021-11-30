@@ -41,9 +41,9 @@
 
             map = new mapboxgl.Map({
                 container: 'mapa',
-                style: 'mapbox://styles/juanrugar/cklb64gd31uvg17qu0a43nlf2',
-                center: [-89.47651, 16.95207],
-                zoom: 14.00,//8.14,
+                style: 'mapbox://styles/juanrugar/ckwm0dp5c5ost15p2b1xvaqrl',
+                center: [-89.306, 16.912],//[-89.47651, 16.95207],
+                zoom: 14.00, // 8.14,
                 bearing: 0.00,
                 pitch: 0.00
             });
@@ -72,7 +72,7 @@
                 //popup with site data
                 addPopupToMap("siteMap");
 
-            })
+            });
 
             map.on("click", function () {
                 updatePosition()
