@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+#target { 
+    position:absolute; top:0; bottom:0; width:100%;
+    display: flex; justify-content: center; align-items: center;
+    pointer-events: none;
+}
+#target img { width:30px; height:30px; }
+#position { 
+    position:absolute; top:0; height: 80px; width: 300px; 
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
