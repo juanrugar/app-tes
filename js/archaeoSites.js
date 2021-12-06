@@ -1,7 +1,7 @@
 
 function addSites() {
     //PLB PhD Thesis archaeological record
-    var url = 'data/170509AE_v5.geojson';
+    var url = 'data/arqueo-protoVal.geojson';
     map.addSource('sites', { type: 'geojson', data: url });
 
     map.addLayer({
