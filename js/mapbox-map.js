@@ -1,38 +1,6 @@
-<html>
+//Mapbox script from original main-map.html
 
-<head>
-    <meta charset='utf-8' />
-    <title>País Valencià - Bronze i Ferro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
-    <script
-        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
-    <link rel='stylesheet'
-        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css'
-        type='text/css' />
-    <script
-        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
-        type="text/css">
-    <link rel='stylesheet' href="css/arqueo.css">
-    <script src="data/gva-arqueologia-coput.geojson"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/archaeoSites.js"></script>
-
-
-</head>
-
-<body onload="init()">
-
-    <div id="mapa" class="map"></div>
-    <div id="target"><img src="img/target.svg" alt=""></div>
-    <div id="position"></div>
-
-
-    <script>
-        //Añadir vuestor token!!
+        //Añadir vuestro token!!
         var map;
         var position = document.getElementById("position");
 
@@ -42,7 +10,7 @@
 
             map = new mapboxgl.Map({
                 container: 'mapa',
-                style: 'mapbox://styles/juanrugar/ckwm0dp5c5ost15p2b1xvaqrl',
+                style: 'mapbox://styles/juanrugar/cky4m106a0e3m14oaobd7wc25',
                 center: [-0.698422, 39.573619],//[-89.47651, 16.95207] Mopan Valley Coords,
                 zoom: 8,
                 bearing: 0.00,
@@ -92,7 +60,4 @@
         } // final init
 
 
-    </script>
-</body>
-
-</html>
+    

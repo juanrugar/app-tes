@@ -1,7 +1,7 @@
 
 function addSites() {
     //PLB PhD Thesis archaeological record
-    //archaeoliogical site plans in 2d polygons
+    //archaeological site plans in 2d polygons
     var url = 'data\AAG_ElLechugal_WGS84.geojson';
     map.addSource('sites', { type: 'geojson', data: url });
 

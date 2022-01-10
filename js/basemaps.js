@@ -7,7 +7,7 @@ var controlCapas, controlEscala; // leaflet map with controls variable declarati
 function init () {      //init function
     map = L.map("map",      //map object instantation 
     {center:[39.47, -0.376389],
-    zoom:12});
+    zoom:10});
     
     //BASEMAP layers instantiation; leaflet providers: "https://leaflet-extras.github.io/leaflet-providers/preview/"
     
@@ -71,45 +71,12 @@ function init () {      //init function
                 attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH,CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
                 maxZoom: 13
     });
-    
-    //OVERLAY layer instantiation; 
-    var SafeCast = L.tileLayer('https://s3.amazonaws.com/te512.safecast.org/{z}/{x}/{y}.png', {
-        maxZoom: 16,
-        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="https://blog.safecast.org/about/">SafeCast</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-    });
 
-    //layer groups of points of interest
-    
-    var downtown = L.marker([39.474778, -0.376667]).bindPopup('Valencia Downtown'),      //declaring a simple marker
-    river = L.marker([39.474573, -0.366846]).bindPopup('River Turia');
-    
-    var townLandmarks = L.layerGroup([downtown, river]);
+    //Overlays layers instantiation
+    //layer comarques
+    //laer caps de municipi
 
-    var railway = L.circleMarker([39.467075, -0.377238],{        //declaring a round marker 
-        color: '#ffffff',       
-        fillColor: '#00ff00',
-        fillOpacity: 0.9,
-        radius: 10
-    }).bindPopup('Estació del Nord - Main Railway Station');
-    var harbor = L.circleMarker([39.455915, -0.326534],
-    {
-        color: '#ffffff',       
-    fillColor: '#00ff00',
-    fillOpacity: 0.9,
-    radius: 10,
-    }).bindPopup('El Grau - Travel Harbour and Marina');
-
-    var airport = L.circleMarker([39.491411, -0.477013],
-    {
-        color: '#ffffff',       
-    fillColor: '#00ff00',
-    fillOpacity: 0.9,
-    radius: 10
-    }).bindPopup('Manises Airport');
-    
-    var transport = L.layerGroup([railway,harbor, airport]);
-    
-    //parameters
+    //parameters to controlCapas
     var baseMaps = {
         "OpenStreetMap":osm,
         'OpenStreetMap_DE': OpenStreetMap_DE,
@@ -122,13 +89,13 @@ function init () {      //init function
         'Esri_WorldShadedRelief': Esri_WorldShadedRelief,
         'Esri_OceanBasemap': Esri_OceanBasemap
     };
-    var overlayMaps = {
-        "Safecast": SafeCast,
+
+    /*var overlayMaps = {"Safecast": SafeCast,
         "Points of Interest" : townLandmarks,
         "Transportation" : transport
-    };
-
-    controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
+    }; */
+    
+    controlCapas = L.control.layers(baseMaps, {collapsed:true}).addTo(map); // controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
 
     controlEscala = L.control.scale().addTo(map);
 

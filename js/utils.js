@@ -14,9 +14,9 @@ async function enviarPeticion(url) {
         });
 
 }
-
+//create popup 
 var popup = new mapboxgl.Popup({
-    closeButton: false,
+    closeButton: true,
     closeOnClick: false
 });
 
@@ -31,9 +31,7 @@ function addPopupToMap(nombreCapa) {
             text += "<b>" + key + "</b>: " + e.features[0].properties[key] + "<br>";
         }
 
-        popup.setLngLat(e.lngLat)
-            .setHTML(text)
-            .addTo(map);
+        popup.setLngLat(e.lngLat).setHTML(text).addTo(map);
 
     });
 
@@ -43,7 +41,7 @@ function addPopupToMap(nombreCapa) {
 
     map.on('mouseleave', nombreCapa, function () {
         map.getCanvas().style.cursor = '';
-        popup.remove();
+       // popup.remove();
     });
 
 }// fin funcion

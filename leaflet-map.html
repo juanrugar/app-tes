@@ -1,0 +1,39 @@
+<html lang="es">
+
+<head>
+    <title>Bronze i Ferro</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="autor" />
+    <meta name="description" content="descripción página" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- PLUGIN Leaflet-AJAX -->
+    <script src="https://calvinmetcalf.github.io/leaflet-ajax/dist/leaflet.ajax.js"></script>
+
+    <!-- PLUGIN leaflet-search  -->
+    <script src="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.js"></script>
+    <link rel="stylesheet" href="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilobase.css" />
+    <script src="js/basemaps.js"></script>
+    <script src="js/jaciments.js"></script>
+    <script>
+        function initSitesMap() {
+            init();
+            addSitesData();
+        }         
+    </script>
+
+</head>
+
+<body onLoad="initSitesMap()">
+    <div id="map"> </div>
+</body>
+
+</html>

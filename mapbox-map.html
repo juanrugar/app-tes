@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>País Valencià - Bronze i Ferro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- MapboxGL CDN basic lines --> 
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    
+    <!-- Mapbox geocoder plugin CDN -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
+    
+    <!-- Mapbox directions plugin CDN -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+        
+    <link rel='stylesheet' href="css/arqueo.css">
+    
+    <!-- <script src="data/gva-arqueologia-coput.geojson"></script> -->
+    <script src="js/utils.js"></script>
+    <script src="js/archaeoSites.js"></script>
+</head>
+
+<body onload="init()">
+
+    <div id="mapa" class="map"></div>
+    <div id="target"><img src="img/target.svg" alt=""></div>
+    <div id="position"></div>
+
+    <script>
+        //Añadir vuestro token!!
+        var map;
+        var position = document.getElementById("position");
+
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoianVhbnJ1Z2FyIiwiYSI6ImNranlpd2lqbzB5djQydW1sZTRvem9tdmgifQ.zvNvGIYji6wVpwjlnTHeJg';
+
+            map = new mapboxgl.Map({
+                container: 'mapa',
+                style: 'mapbox://styles/juanrugar/cky4m106a0e3m14oaobd7wc25', //MAPBOX STYLE jaciments-app5-alqvs4!!
+                center: [-0.698422, 39.573619],
+                zoom: 8,
+                bearing: 0.00,
+                pitch: 0.00
+            });
+
+
+            //controls
+            map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+            map.addControl(new mapboxgl.NavigationControl());
+
+
+            map.on('load', function () {
+                //geocoder
+                updatePosition();
+                //archaeological sites location
+                addSites();
+                //popup with site data
+                addPopupToMap("siteMap");
+
+            });
+
+            map.on("click", function () {
+                updatePosition()
+            });
+
+            var updatePosition = function () {
+                var settings = 'center: [' + map.getCenter().lng.toFixed(5) + ', ' + map.getCenter().lat.toFixed(5) + '],\n' +
+                    'zoom: ' + map.getZoom().toFixed(2) + ',\n' +
+                    'bearing: ' + map.getBearing().toFixed(2) + '\n' +
+                    'pitch: ' + map.getPitch().toFixed(2) + ',\n';
+
+                position.innerText = settings;
+            };
+
+
+        } // final init
+
+
+    </script>
+</body>
+
+</html>
