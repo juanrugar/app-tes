@@ -73,8 +73,18 @@ function init () {      //init function
     });
 
     //Overlays layers instantiation
+     //layer caps de municipi
+    /* var muniCNIG = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
+        layers: 'limites administrativos',
+        format: 'image/png',
+        attribution: 'Map data and Style: &copy; <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
+    });*/
     //layer comarques
-    //laer caps de municipi
+   
+    /*var SafeCast = L.tileLayer('https://s3.amazonaws.com/te512.safecast.org/{z}/{x}/{y}.png', {
+        maxZoom: 16,
+        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="https://blog.safecast.org/about/">SafeCast</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    }); */
 
     //parameters to controlCapas
     var baseMaps = {
@@ -90,12 +100,9 @@ function init () {      //init function
         'Esri_OceanBasemap': Esri_OceanBasemap
     };
 
-    /*var overlayMaps = {"Safecast": SafeCast,
-        "Points of Interest" : townLandmarks,
-        "Transportation" : transport
-    }; */
+   // var overlayMaps = {"Safecast": SafeCast}; 
     
-    controlCapas = L.control.layers(baseMaps, {collapsed:true}).addTo(map); // controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
+    controlCapas = L.control.layers(baseMaps, null, {collapsed:true}).addTo(map); // controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
 
     controlEscala = L.control.scale().addTo(map);
 

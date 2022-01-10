@@ -7,16 +7,16 @@ function addSitesData() {
             onEachFeature: function (feature, layer) {
                 popupContent = "<b>" + feature.properties.app_site + "</b>"+
                 "<br>" + feature.properties.app_muni +
-                "(" + feature.properties.app_comar + ")"+ "<br/>"
-                "<br>" + feature.properties.app_chrono + "<br/>"
-                "<br>" + feature.properties.cult1 + "<br/>"
-                "<br>" + feature.properties.cult2 + "<br/>"
-                "<br>" + feature.properties.cult3 + "<br/>"
-                "<br>" + feature.properties.cult4 + "<br/>"
-                "<br>" + feature.properties.type1 + "<br/>"
-                "<br>" + feature.properties.type2 + "<br/>"
-                "<br>" + feature.properties.type1 + "<br/>"
-                "<br>" + feature.properties.gva_fitxa + "</b>";
+                " (" + feature.properties.app_comar + ")"+ "<br/>"+
+                "<br>Cronologia: " + feature.properties.app_chrono + "<br/>"+
+                "<br>Fase Cultural 1: " + feature.properties.cult1 + "<br/>"+
+                "<br>" + feature.properties.cult2 + "<br/>"+
+                "<br>" + feature.properties.cult3 + "<br/>"+
+                "<br>" + feature.properties.cult4 + "<br/>"+
+                "<br>" + feature.properties.type1 + "<br/>"+
+                "<br>" + feature.properties.type2 + "<br/>"+
+                "<br>" + feature.properties.type1 + "<br/>"+
+                "<br><a>" + feature.properties.gva_fitxa + "</a></b>";
                 layer.bindPopup(popupContent);
             },
             pointToLayer: function (feature, latlng) {
