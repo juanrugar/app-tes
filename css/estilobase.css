@@ -1,0 +1,43 @@
+        body {
+            margin: 0;
+            overflow: visible;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+        }
+        div .panelTopIzquierda {
+            position: relative;
+            top: 190px;
+            left: 40px;
+            width: 200px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            font-size: 20px;
+            color: #333333;
+            border-radius: 5px;
+            font-size:12px;
+        }
+
+        .panelTopIzquierda label {
+            font-size: 0.85em;
+        }
+
+        .panelTopIzquierda input[type=range] {
+            cursor: pointer;
+            width: 95%;
+        }
+
+        .panelTitol {
+            position: absolute;
+            top: 5px;
+            left: 45%;
+            z-index:5;
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            opacity: 0.9;
+            font-size: 22px;
+        }
