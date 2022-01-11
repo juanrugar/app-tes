@@ -100,9 +100,9 @@ function init () {      //init function
         'Esri_OceanBasemap': Esri_OceanBasemap
     };
 
-   // var overlayMaps = {"Safecast": SafeCast}; 
+   var overlayMaps = {}; 
     
-    controlCapas = L.control.layers(baseMaps, null, {collapsed:true}).addTo(map); // controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
+    controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map); // controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
 
     controlEscala = L.control.scale().addTo(map);
 
