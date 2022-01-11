@@ -1,7 +1,8 @@
+
 var layerSites;
 var urlSites = "data/jaciments_app5.geojson";
 
-function addSitesData() { 
+function addSitesData(){ 
 
     layerSites  = new L.GeoJSON.AJAX(urlSites, {
             onEachFeature: function (feature, layer) {
@@ -15,7 +16,8 @@ function addSitesData() {
                 "<ul><li><b>Tipus de jaciment: </b>" + feature.properties.type2 +"</li></ul>" +
                 "<b>Fase Cultural 3: </b>" + feature.properties.cult3 + 
                 "<br>Fase Cultural 4: " + feature.properties.cult4 + 
-                "<br><a href=" +feature.properties.gva_fitxa+ ">Fitxa Inventari GVA</a>";
+                "<br><a href=" +feature.properties.gva_fitxa+ ">Fitxa Inventari GVA</a>"+
+                "<br>Notes: "+feature.properties.notes;
                 
                 layer.bindPopup(popupContent);
                 

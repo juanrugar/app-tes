@@ -4,15 +4,18 @@
 <head>
   <title>Patrimoni Valencià</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="autor"/>
+  <meta name="description" content="descripción página">
+  <meta name="robots" content="index,follow">
+    
+  
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/carousel.js"></script>
+  <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body translate="no">
@@ -26,7 +29,7 @@
         <a href="#project">Visor</a>
       </li>
       <li>
-        <a href="#search">Cercador</a>
+        <a href="#documents">Documentació</a>
       </li>
       <li>
         <a href="#contact">Contacte</a>
@@ -38,53 +41,41 @@
   <!-- 2nd - THE WELCOME SECTION -->
   <section id="welcome-section" class="welcome-section">
     <h1>Bronze i Ferro - El patrimoni proto-històric Valencià</h1>
-    <p>Benviguts i benvigudes al visor de patrimoni arqueològic proto-històric de València.</p>
+    <p>Benviguts i benvigudes al visor de patrimoni arqueològic proto-històric de València.</p><br>
+    <p>Aquesta proposta neix per dotar d'una dimensió interactiva a aquells estudis que no he pogut desenvolupar fins aquest punt amb anterioritat. De tots els treballs que he realitzat, he escollit un estudi de paisatge realitzat en l’any 2002 sobre l’organització del territori corresponent a les comarques centrals de la província de València durant l’apogeu de la cultura Ibèrica (segles VII al II/I aC). En aquest període, hi ha proves de que el territori va anar dividint-se en diferents petits regnes o estats amb una ciutat central que li donava nom, i una organització territorial complexa i jerarquitzada configurada per un conjunt de nuclis de caire urbà.</p>
+    <br>
+    <p>D’aquesta situació tenim el testimoni de les fonts llatines que descriuen el territori peninsular i, particularment, el corresponent a l’actual País Valencià, mitjançant un mosaic de diverses regions batejades amb topònims relacionats o derivats dels noms dels diferents pobles ibèrics del territori. En el cas de l’estudi esmentat, aquest corresponia a l’anomenada Edetània, un territori comprés des el riu Xúquer (província de València) fins el riu Palància (província de Castelló). Aquest fenomen es troba altres zones de cultura ibèrica com Catalunya, on trobem, per exemple, la Laietània, un territori que abastava aproximadament les actuals comarques de Maresme, Barcelonès, Baix Llobregat, Vallès Oriental i Vallès Occidental.</p>
+      
   </section>
   <!-- END WELCOME SECTION -->
 
-  <!-- 2rd - THE PROJECTS' SECTION -->
+  <!-- 2rd - THE VISOR' SECTION -->
   <section id="project" class="projects-section">
     <h2 class="projects-section-header">El visor de patrimoni arqueològic</h2>
-    <p>Explicació de la Falla...</p>
-    <div id="myCarousel" class="carousel slide">
-
-        <!-- Indicators -->
-        <ul class="carousel-indicators">
-          <li class="item1 active"></li>
-          <li class="item2"></li>
-          <li class="item3"></li>
-        </ul>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/al-idrisi_lite.jpg" alt="Edeta, Capital dels Edetans" width="1100" height="500">
-            </div>
-            <div class="carousel-item">
-                <img src="img/leaflet-fountains.png" alt="leaflet" width="1100" height="500">
-            </div>
-            <div class="carousel-item">
-                <img src="img/mapbox-cadastre_3D.png" alt="mapbox" width="1100" height="500">
-            </div>
-         </div>
-            
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#myCarousel">
-            <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel">
-            <span class="carousel-control-next-icon"></span>
-            </a>
-        
-    </div>
-    <!--
-    <a href="https://codepen.io/FreeCodeCamp/" class="btn btn-show-all" target="_blank">Show all<i
-        class="fas fa-chevron-right"></i></a> 
-      -->
+    <p>El visor del poblament prehistòric abasta l’àrea geogràfica que comprén les comarques des de la conca del riu Xúquer () fins la conca del riu Palància. El visor permet l’usuari consultar les dades dels diferents punts d’interès arqueològic i observar el paisatge des de la perspectiva dels diversos períodes culturals del seu passat prehistòric.</p> 
+    <p>En el cas dels jaciments o indrets millor documentats s’inclouran plànols o restitucions en 3D sobre el mapa base que reforcen la visualització i comprensió del paisatge. </p>
+      <p>Cada punt d'interés correspon a un jaciment arqueològic</p>
+    <p><a href="leaflet-map.html">Accés al visor</a></p>
   </section>
 
-  <section id="search" class="search-section">
+    <!-- END VISOR SECTION -->
     
+     <!-- 3RD - DOCUMENTATION SECTION -->
+  <section id="documents" class="documents-section">
+     <h2 class="documents-section-header">Guia i documentació del visor de patrimoni arqueològic</h2>
+        <p>Aquesta secció conté la informació detallada del jaciments del visor. Cada jaciment té una fitxa de registre amb diferents camps d'informació procedents de la Direcció General de Patrimoni Cultural de la Generalitat Valenciana. Una part d'aquesta es mostra a clicar sobre la icona d'un jaciment al visor.</p>
+        <p>La fitxa de registre complet conté les següents seccions: </p>
+            <ul> 
+                <li>Nom del jaciment</li>
+                <li>Cronologia del jaciment</li>
+                <li>Fases culturals</li>
+                <li>Tipologia dels jaciments</li>
+                <li></li>
+            </ul>
+        
   </section>
+    
+    <!-- END DOCUMENTATION SECTION -->
 
   <!-- 4TH - CONTACT SECTION-->
   <section id="contact" class="contact-section">
@@ -104,7 +95,7 @@
   <!-- 5th - footer -->
   <footer>
     <p></p>
-    <p>&copy; Created by Juan Ruiz, 2021</p>
+    <p>&copy; Created by Juan Ruiz, 2022</p>
   </footer>
 </body>
 
