@@ -2,7 +2,7 @@
 var layerSites;
 var urlSites = "data/jaciments_app5.geojson";
 
-function addSitesData(){ 
+function addSitesData() { 
 
     layerSites  = new L.GeoJSON.AJAX(urlSites, {
             onEachFeature: function (feature, layer) {
@@ -10,17 +10,12 @@ function addSitesData(){
                 "<br>" + feature.properties.app_muni + " (" + feature.properties.app_comar + ")"+ 
                 "<hr>"+
                 "<b>Cronologia: </b>" + feature.properties.app_chrono + 
-                "<br><b>Fase Cultural 1: </b>" + feature.properties.cult1 +
-                "<ul><li><b>Tipus de jaciment: </b>" + feature.properties.type1 + "</li></ul>"+
-                "<b>Fase Cultural 2: </b>" + feature.properties.cult2 + 
-                "<ul><li><b>Tipus de jaciment: </b>" + feature.properties.type2 +"</li></ul>" +
-                "<b>Fase Cultural 3: </b>" + feature.properties.cult3 + 
-                "<br>Fase Cultural 4: " + feature.properties.cult4 + 
+                "<br><b>Fase 1: </b>" + feature.properties.cult1 + ", " + feature.properties.type1 + 
+                "<br><b>Fase 2: </b>" + feature.properties.cult2 + ", " + feature.properties.type2 +
+                "<br><b>Fase 3: </b>" + feature.properties.cult3 + ", " + feature.properties.type2 +
                 "<br><a href=" +feature.properties.gva_fitxa+ ">Fitxa Inventari GVA</a>"+
                 "<br>Notes: "+feature.properties.notes;
-                
                 layer.bindPopup(popupContent);
-                
             },
             pointToLayer: function (feature, latlng) {
                // puntosCluster.addLayer(L.marker(latlng));
