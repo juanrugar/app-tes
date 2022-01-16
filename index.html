@@ -8,32 +8,37 @@
   <meta name="author" content="autor"/>
   <meta name="description" content="descripción página">
   <meta name="robots" content="index,follow">
-    
-  
+      
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    
   <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body translate="no">
+    
+<div class="container">
+    
   <!-- 1ST THE NAV -->
-  <nav id="navbar" class="nav">
+  <nav id="navbar" class="navbar nav">
+      
     <ul class="nav-list">
       <li>
         <a href="#welcome-section">Benvinguda</a>
       </li>
       <li>
-        <a href="#project">Visor</a>
+          <a href="#documents">Documentació</a>
       </li>
       <li>
-        <a href="#documents">Documentació</a>
+        <a href="#visor">Visor</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="#contact">Contacte</a>
-      </li>
+      </li> -->
     </ul>
   </nav>
   <!-- NAVBAR END -->
@@ -46,38 +51,43 @@
     <br>
     <p>D’aquesta situació tenim el testimoni de les fonts llatines que descriuen el territori peninsular i, particularment, el corresponent a l’actual País Valencià, mitjançant un mosaic de diverses regions batejades amb topònims relacionats o derivats dels noms dels diferents pobles ibèrics del territori. En el cas de l’estudi esmentat, aquest corresponia a l’anomenada Edetània, un territori comprés des el riu Xúquer (província de València) fins el riu Palància (província de Castelló). Aquest fenomen es troba altres zones de cultura ibèrica com Catalunya, on trobem, per exemple, la Laietània, un territori que abastava aproximadament les actuals comarques de Maresme, Barcelonès, Baix Llobregat, Vallès Oriental i Vallès Occidental.</p>
       
-  </section>
+      </section>
+    
   <!-- END WELCOME SECTION -->
+    
+    <!-- 2ND - DOCUMENTATION SECTION -->
+    
+      <section id="documents" class="documents-section">
+         <h2 class="documents-section-header">Guia i documentació del visor de patrimoni arqueològic</h2>
+            <p>Aquesta secció conté la informació detallada del jaciments del visor. Cada jaciment té una fitxa de registre amb diferents camps d'informació procedents de la Direcció General de Patrimoni Cultural de la Generalitat Valenciana. Una part d'aquesta es mostra a clicar sobre la icona d'un jaciment al visor.</p>
+            <p>La fitxa de registre complet conté les següents seccions: </p>
+                <ul> 
+                    <li>Nom del jaciment</li>
+                    <li>Cronologia del jaciment</li>
+                    <li>Fases culturals</li>
+                    <li>Tipologia dels jaciments</li>
+                    <li>Protecció dels jaciments</li>
+                </ul>
 
-  <!-- 2rd - THE VISOR' SECTION -->
-  <section id="project" class="projects-section">
-    <h2 class="projects-section-header">El visor de patrimoni arqueològic</h2>
+      </section>
+    
+    <!-- END DOCUMENTATION SECTION -->
+    
+<!-- 3RD - THE VISOR' SECTION -->
+    
+  <section id="visor" class="visor-section">
+    <h2 class="visor-section-header">El visor de patrimoni arqueològic</h2>
     <p>El visor del poblament prehistòric abasta l’àrea geogràfica que comprén les comarques des de la conca del riu Xúquer () fins la conca del riu Palància. El visor permet l’usuari consultar les dades dels diferents punts d’interès arqueològic i observar el paisatge des de la perspectiva dels diversos períodes culturals del seu passat prehistòric.</p> 
     <p>En el cas dels jaciments o indrets millor documentats s’inclouran plànols o restitucions en 3D sobre el mapa base que reforcen la visualització i comprensió del paisatge. </p>
       <p>Cada punt d'interés correspon a un jaciment arqueològic</p>
-    <p><a href="leaflet-map.html">Accés al visor</a></p>
+    <div class="contact-links">
+        <a class="btn breadcrumb" href="leaflet-map.html">Accés al visor</a>
+    </div> 
   </section>
-
+</div>
     <!-- END VISOR SECTION -->
-    
-     <!-- 3RD - DOCUMENTATION SECTION -->
-  <section id="documents" class="documents-section">
-     <h2 class="documents-section-header">Guia i documentació del visor de patrimoni arqueològic</h2>
-        <p>Aquesta secció conté la informació detallada del jaciments del visor. Cada jaciment té una fitxa de registre amb diferents camps d'informació procedents de la Direcció General de Patrimoni Cultural de la Generalitat Valenciana. Una part d'aquesta es mostra a clicar sobre la icona d'un jaciment al visor.</p>
-        <p>La fitxa de registre complet conté les següents seccions: </p>
-            <ul> 
-                <li>Nom del jaciment</li>
-                <li>Cronologia del jaciment</li>
-                <li>Fases culturals</li>
-                <li>Tipologia dels jaciments</li>
-                <li></li>
-            </ul>
-        
-  </section>
-    
-    <!-- END DOCUMENTATION SECTION -->
 
-  <!-- 4TH - CONTACT SECTION-->
+    <!-- 4TH - CONTACT SECTION 
   <section id="contact" class="contact-section">
     <div class="contact-section-header">
       <h2>Let's work together...</h2>
@@ -88,14 +98,17 @@
           class="fab"></i>LinkedIn</a>
       <a class="btn contact-details" href="https://github.com/juanrugar" target="_blank">Github</a>
       <a class="btn contact-details" href="https://www.freecodecamp.org/janruygar" target="_blank">freeCodeCamp</a>
-      <!-- <a class="btn contact-details" href="https://jonirgar.medium.com/" target="_blank">Medium</a> -->
+      
       <a class="btn contact-details" href="https://codepen.io/janruygar74/" target="_blank">Codepen</a>
     </div>
   </section>
+    
+    END CONTACT SECTION -->    
+
   <!-- 5th - footer -->
   <footer>
     <p></p>
-    <p>&copy; Created by Juan Ruiz, 2022</p>
+    <p>&copy; Juan Ruiz, 2022</p>
   </footer>
 </body>
 

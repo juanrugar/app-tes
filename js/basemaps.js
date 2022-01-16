@@ -73,6 +73,7 @@ function init () {      //init function
     });
 
     //Overlays layers instantiation
+
      //layer caps de municipi
     var muniLim = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
         layers: '1',
@@ -86,6 +87,7 @@ function init () {      //init function
         transparent: true,
         attribution: 'Límits administratius: CV05 2012 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
     });
+
     //layer comarques
     var comarLim = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
         layers: '4',
@@ -102,6 +104,7 @@ function init () {      //init function
         attribution: 'Límits administratius: CV05 2012 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
     });
     
+    //Historical imagery 1956-57
     var photoHist =
         L.tileLayer.wms('https://www.ign.es/wms/pnoa-historico?', {
         layers: 'AMS_1956-1957',
@@ -110,14 +113,7 @@ function init () {      //init function
         attribution: 'Límits administratius: CV05 2012 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
     });
     
-    var ignUniAdmin =
-        L.tileLayer.wms('https://www.ign.es/wms-inspire/unidades-administrativas?', {
-        layers: 'Muni',
-        format: 'image/png',
-        transparent: true,
-        attribution: 'Límits administratius: CV05 2012 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
-    });
-    
+        
    //parameters to controlCapas
     var baseMaps = {
         "OpenStreetMap":osm,
@@ -132,16 +128,14 @@ function init () {      //init function
         'Esri_OceanBasemap': Esri_OceanBasemap
     };
 
-   var overlayMaps = {"Unitats administratives": ignUniAdmin,
-                    "Fotos històriques": photoHist,
+   var overlayMaps = {"Fotos històriques": photoHist,
                       "Límit municipal":muniLim,
                      "Municipi":muniName,
                      "Límit comarcal":comarLim,
                      "Comarca":comarName}; 
     
-    controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map); // controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
-
+    controlCapas = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map); 
+    
     controlEscala = L.control.scale().addTo(map);
-
 
 };
