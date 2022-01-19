@@ -1,12 +1,32 @@
 
-var layerSites, selectSites;
+var layerSites;
 var urlSites = "data/jaciments_app5.geojson";
-
-
 
 //START addSitesData function 
 
 function addSitesData() { 
+//from https://leafletjs.com/examples/choropleth/
+
+    function getColor(d){
+        return d == "Paleolític" ? '#ffffb2':
+               d == "Epipaleolític" ? '#fed976':
+               d == "Neolític" ? '#feb24c':
+               d == "Eneolític" ? '#fd8d3c':
+               d == "Edat del Bronze" ? '#f03b20':
+               d == "Cultura Ibèrica" ? '#bd0026':
+               '#00ff00';
+    }
+
+    function style(feature){
+        return {
+            fillColor: getColor(feature.properties.cult1),
+            radius: 4,
+            weight: 1,
+            opacity: 1,
+            color: 'black',
+            fillOpacity: 1.0
+        }
+    }
 
     layerSites  = new L.GeoJSON.AJAX(urlSites, {
             onEachFeature: function (feature, layer) {
@@ -21,15 +41,11 @@ function addSitesData() {
                 "<br>Notes: " + feature.properties.notes;
                 layer.bindPopup(popupContent);
             },  
+            style: style,
             pointToLayer: function (feature, latlng) {
                // puntosCluster.addLayer(L.marker(latlng));
                 return L.circleMarker(latlng, {
-                    radius: 6,
-                    fillColor: "#00ff00",
-                    color: "#ffffff",
-                    weight: 3,
-                    opacity: 1,
-                    fillOpacity: 0.8
+                    
                 });
             }
         }).addTo(map);
@@ -80,34 +96,5 @@ function addSitesData() {
 }
 //END addSitesData function
 
-//function selectFaseCult
-function selectFaseCult() {
-            var mySelect = document.getElementById("fase").value;
-                        
-            selectSites = L.GeoJSON.AJAX(urlSites, {
-                pointToLayer: function (feature, latlng) {
-                        return L.circleMarker(latlng, {
-                        radius: 6,
-                        fillColor: "#00ff00",
-                        color: "#ffffff",
-                        weight: 3,
-                        opacity: 1,
-                        fillOpacity: 0.8
-                    });
-                },
-                filter: function(feature, layer) {  								
-                        if(mySelect != "Tots")	{	
-                            return (feature.properties.cult1 == mySelect );
-                        }else{
-                            return true;
-                        }
-                }
-            }).addTo(map);;
-                                        
-        
-}
-                                        
-//END SELECT FUNCTION CULTURAL PHASE
-                                        
                                         
                                         
