@@ -1,8 +1,8 @@
 
 
-var map, osm, OpenTopoMap, municipis, comarques;  // basic map variables declaration
+var map, osm, OpenTopoMap, Esri_WorldImagery, muniLim, muniName, comarLim, comarName, municipis, comarques;  // basic map variables declaration
 
-var layerControl, scaleControl; // leaflet map with controls variable declaration
+var baseMaps, overlayMaps, layerControl, scaleControl, locateControl; // leaflet map with controls variable declaration
 
 function init () {      //init function
     map = L.map("map",      //map object instantation 
@@ -21,22 +21,25 @@ function init () {      //init function
             maxZoom: 17,
             attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
         });
-    //
+    //Imagery map
+    Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
    
 
-    //Overlays layers instantiation
+    //OVERLAYS layers instantiation
 
      //layer caps de municipi
     municipis = L.layerGroup();
 
-    var muniLim = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
+    muniLim = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
         layers: '1',
         format: 'image/png',
         transparent: true,
         attribution: 'Límits administratius: CV05 2012 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
     }).addTo(municipis);
     
-    var muniName = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
+    muniName = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
         layers: '2',
         format: 'image/png',
         transparent: true,
@@ -45,14 +48,15 @@ function init () {      //init function
 
     //layer comarques
     comarques = L.layerGroup();
-    var comarLim = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
+
+    comarLim = L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
         layers: '4',
         format: 'image/png',
         transparent: true,
         attribution: 'Límits administratius: CV05 2012 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat <a href="https://catalogo.icv.gva.es/geonetwork/srv/spa/catalog.search#/metadata/spaicvMunicipiosCVIGNLimites">IDEV</a>',
     }).addTo(comarques);
     
-    var comarName =
+    comarName =
         L.tileLayer.wms('http://carto.icv.gva.es/arcgis/services/tm_otros/limites_administrativos/MapServer/WMSServer', {
         layers: '5',
         format: 'image/png',
@@ -70,19 +74,53 @@ function init () {      //init function
     });
     
         
-   //parameters to controlCapas
-    var baseMaps = {
+   //parameters for layerControl
+    baseMaps = {
         "OSM bàsic":osm,
-        'OSM Topogràfic': OpenTopoMap,
-                      
+        "OSM Topogràfic": OpenTopoMap,
+        "Esri Satèl·lit" : Esri_WorldImagery
     };
 
-   var overlayMaps = {"Fotos històriques": photoHist,
+    overlayMaps = {"Fotos històriques": photoHist,
                       "Municipis":municipis,
                      "Comarques":comarques}; 
     
+    //plugins' CONTROLS
+    //layer control 
     layerControl = L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map); 
-    
+    //scale control
     scaleControl = L.control.scale().addTo(map);
+
+    //geolocation plugin (https://github.com/domoritz/leaflet-locatecontrol)
     
+    locateControl = L.control.locate({
+        position : 'topleft',
+        strings: {
+            title: "La teua localització",
+            popup: "Et trobes aproximadament a {distance} {unit} d'aquest punt" //Reference to control.locate options: https://github.com/domoritz/leaflet-locatecontrol/blob/gh-pages/src/L.Control.Locate.js#L31
+
+        }
+    }).addTo(map); 
+    
+        
+    //map class locate method (https://leafletjs.com/examples/mobile/#geolocation)
+    /*map.locate({setView:true, watch: true, maxZoom:16}). 
+   
+    function onLocationFound(e) {
+        var radius = e.accuracy;
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("Et trobes aproximadament a " + radius + " metres d'aquest punt").openPopup();
+    
+        L.circle(e.latlng, radius).addTo(map);
+    }
+    
+    map.on('locationfound', onLocationFound);
+    
+    function onLocationError(e) {
+        alert(e.message);
+    }
+    
+    map.on('locationerror', onLocationError);       */
+
+   
 };
