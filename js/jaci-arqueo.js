@@ -92,7 +92,6 @@ function addSitesData() {
         map.addControl(searchMuni);
         
         
-        
 }
 //END addSitesData function
 

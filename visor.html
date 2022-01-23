@@ -1,9 +1,9 @@
-<html lang="es">
 
-<head>
-    <title>Visor del Patrimoni Prehistòric Valencià</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+  <head>
+    <title>Visor Del Patrimoni Arqueològic</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="autor" />
     <meta name="description" content="descripción página" />
     <meta name="robots" content="index,follow" />
@@ -11,11 +11,11 @@
     <!-- leaflet.js -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    
+     
     <!-- PLUGIN Leaflet.Spain.WMS -->
     <script src="https://sigdeletras.github.io/Leaflet.Spain.WMS/src/Leaflet.Spain.WMS.js"></script>
     
@@ -31,9 +31,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/basicstyle.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+
     <script src="js/basemaps.js"></script>
     <script src="js/jaci-arqueo.js"></script>
     
@@ -43,24 +45,42 @@
             addSitesData();
         }         
     </script>
-
-</head>
-
-<body onLoad="initSitesMap()">
-    <div class="container">
-        <nav class="navbar">
-            <div>
-                <h4>Visor Patrimoni Arqueològic</h4>
-           </div>
-            <div>
-                <ul class="breadcrumb">
-                    <li><a href="index.html">Tornar a la pàgina principal</a></li>
-                </ul>
+  </head>
+  
+  <body onLoad="initSitesMap()">
+    <header class="container">
+      <div class="row">
+            <div class="col-sm-6"></div> <!-- RESERVAT PER A LA ICONA DEL VISOR -->
+            <nav class="col-sm-6">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+      </div>
+    </header>
+    <section class="jumbotron">
+          <div class="container">
+            <div class="row">
+              <h3 class="color-primary-4">Visor de patrimoni arqueològic: País Valencià Central</h3>
             </div>
-        </nav>
-        
-        <div id="map"> 
-    </div>
-</body>
-
+            <br>
+            <div class="row">
+              <h5>L'eina per localitzar i coneixer les petjades dels nostres avantpassats</h5>
+            </div>
+          </div>
+    </section>
+    <section class="container">
+      <div id="map"></div> 
+      
+    </section>
+    
+   <footer class="container-fluid">
+     <div class="row">
+      
+       <div class="col-sm-8">&copy; 2022 Juan Ruiz</div>
+       <div class="col-sm-2"><a href="https://www.linkedin.com/in/jruizgarcia-gis-webdeveloper" target="_blank">Personal Profile</a></div>
+       <div class="col-sm-2"><a href="https://github.com/juanrugar" target="_blank">Github</a></div>
+     </div>
+   </footer>
+  </body>
+  
 </html>
